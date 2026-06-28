@@ -1,3 +1,5 @@
+from functools import lru_cache
+
 from pydantic import BaseModel, field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
@@ -32,9 +34,9 @@ class Settings(BaseSettings):
         case_sensitive=False,
     )
 
-    spark: SparkConfig = SparkConfig()
+    spark: SparkConfig
     etl: ETLConfig
 
-
+@lru_cache
 def get_settings() -> Settings:
     return Settings()
