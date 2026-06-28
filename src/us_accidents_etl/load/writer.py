@@ -10,8 +10,7 @@ def write_dataset(df: DataFrame, output_path: str) -> None:
         df.write.mode("overwrite").parquet(output_path)
     else:
         os.makedirs(output_path, exist_ok=True)
-        df.write.mode("overwrite").csv(output_path)
-        #df.toPandas().to_csv(os.path.join(output_path, "data.csv"), index=False)
+        df.write.mode("overwrite").parquet(output_path)
 
 
 def write_filtered(df: DataFrame, cfg: ETLConfig) -> None:
@@ -27,8 +26,8 @@ def write_aggregations(
     cfg: ETLConfig,
 ) -> None:
     agg_base = f"{cfg.output_path}/agg"
-    write_dataset(severity,  f"{agg_base}/severity_stats")
-    write_dataset(states,    f"{agg_base}/state_stats")
-    write_dataset(cities,    f"{agg_base}/city_stats")
-    write_dataset(weather,   f"{agg_base}/weather_stats")
+    write_dataset(severity, f"{agg_base}/severity_stats")
+    write_dataset(states, f"{agg_base}/state_stats")
+    write_dataset(cities, f"{agg_base}/city_stats")
+    write_dataset(weather, f"{agg_base}/weather_stats")
     write_dataset(day_night, f"{agg_base}/day_night_stats")

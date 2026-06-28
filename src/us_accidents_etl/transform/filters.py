@@ -13,6 +13,6 @@ def filter_weather_conditions(df: DataFrame, cfg: ETLConfig) -> DataFrame:
 
 
 def apply_etl_filters(df: DataFrame, cfg: ETLConfig) -> DataFrame:
-    df = filter_weather_conditions(df,cfg)
-    df = filter_high_severity(df,cfg)
+    df = filter_weather_conditions(df, cfg)
+    df = filter_high_severity(df, cfg)
     return df
