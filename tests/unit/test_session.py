@@ -70,8 +70,7 @@ def test_create_spark_session_local_casts_executor_cores_to_string():
         create_spark_session(SparkConfig(remote=None, executor_cores=4))
 
     c3 = (
-        builder.master.return_value.appName.return_value.config.return_value
-        .config.return_value.config
+        builder.master.return_value.appName.return_value.config.return_value.config.return_value.config
     )
     c3.assert_called_once_with("spark.executor.cores", "4")
 
