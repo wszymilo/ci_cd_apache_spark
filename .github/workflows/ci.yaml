@@ -65,3 +65,10 @@ jobs:
           --cov=src/us_accidents_etl
           --cov-report=term-missing
           --cov-report=xml
+
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-xml-{{ matrix.python-version }}
+          path: coverage.xml
+
