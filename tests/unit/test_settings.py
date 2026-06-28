@@ -38,3 +38,4 @@ def test_get_settings_raises_without_required_env(monkeypatch):
         monkeypatch.delenv(key, raising=False)
     with pytest.raises(Exception):
         get_settings(_env_file=None)
+
