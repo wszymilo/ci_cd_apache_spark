@@ -1,3 +1,25 @@
+[project]
+name = "cicd"
+version = "0.1.0"
+description = "CI-CD training"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "coverage>=7.14.3",
+    "jupyterlab>=4.6.0",
+    "kagglehub==0.4.3",
+    "kagglesdk>=0.1.14,<1.0",
+    "mypy>=2.1.0",
+    "pandas>=2.2.0",
+    "pydantic-settings>=2.14.2",
+    "pyspark>=4.1.2",
+    "pytest>=9.1.1",
+    "pytest-coverage>=0.0",
+    "ruff>=0.15.20",
+]
+
+
 [tool.pytest.ini_options]
 pythonpath = ["src"]
 testpaths = ["tests"]
+
