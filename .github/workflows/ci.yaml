@@ -1,10 +1,10 @@
 name: CI
 
 on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+  workflow_run:
+    workflows: ["Format"] # Nazwa zdefiniowana w pliku format.yaml
+    types:
+      - completed
 
 jobs:
   lint:
@@ -13,7 +13,7 @@ jobs:
 
     strategy:
       matrix:
-        python-version: [ "3.12" ]
+        python-version: [ "3.12", "3.11" ]
 
     steps:
       - uses: actions/checkout@v5
@@ -37,7 +37,7 @@ jobs:
 
     strategy:
       matrix:
-        python-version: [ "3.12" ]
+        python-version: [ "3.12", "3.11" ]
 
     steps:
       - uses: actions/checkout@v5
